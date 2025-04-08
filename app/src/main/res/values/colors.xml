@@ -11,5 +11,14 @@
     <color name="Blue">#2270C2</color>
     <color name="azul">#4B9AF6</color>
     <color name="otro_azul">#4067ce</color>
+    <color name="dark_blue">#1E3A8A</color>
+
+
+    --> colores de editar perfil
+
+    <color name="azulEditText">#ADD3FF</color>
+    <color name="azulbuttonmenu">#8FB3FF</color>
+
+
 </resources>
 
