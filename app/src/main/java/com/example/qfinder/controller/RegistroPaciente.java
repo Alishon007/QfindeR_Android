@@ -25,14 +25,10 @@ public class RegistroPaciente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paciente);
 
-        // Inicialización sin cambios en la DB
+        // Inicialización corregida
         managerDB = new ManagerDB(this);
-        managerDB.dbHelper.getWritableDatabase();
 
-        // Vincular vistas
         vincularComponentes();
-
-        // Configurar listeners
         configurarEventos();
     }
 
@@ -126,7 +122,6 @@ public class RegistroPaciente extends AppCompatActivity {
 
     private void registrarPaciente() {
         try {
-            // Obtener valores de los campos
             String nombre = etNombre.getText().toString().trim();
             String apellido = etApellido.getText().toString().trim();
             String dependencia = etDependencia.getText().toString().trim();
@@ -134,18 +129,12 @@ public class RegistroPaciente extends AppCompatActivity {
             String sexo = etSexo.getText().toString().trim();
             int edad = Integer.parseInt(etEdad.getText().toString().trim());
 
-            // Generar ID aleatorio (como en tu versión original)
             int idGenerado = (int) (Math.random() * 100000);
 
-            // Insertar en la DB (sin cambios)
-            managerDB.insertarPaciente(idGenerado, nombre, apellido, dependencia, fechaNacimiento, sexo, edad);
-
-            // Mostrar confirmación
-            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-
-            // Limpiar formulario
-            limpiarFormulario();
-
+            if (managerDB.insertarPaciente(idGenerado, nombre, apellido, dependencia, fechaNacimiento, sexo, edad)) {
+                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                limpiarFormulario();
+            }
         } catch (Exception e) {
             Toast.makeText(this, "Error al registrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }

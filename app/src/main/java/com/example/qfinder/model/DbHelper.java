@@ -11,11 +11,15 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(Constantes.SENTENCIA_TABLA);
-
+        // Create all tables from both branches
+        db.execSQL(Constantes.SENTENCIA_TABLA); // From HEAD branch (Paciente table)
+        db.execSQL(Constantes.SENTENCIA_CREAR_USUARIO); // From moriones branch (usuario table)
+        db.execSQL(Constantes.SENTENCIA_CREAR_RECORDATORIO); // From moriones branch (recordatorio table)
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Typically you would handle database migrations here
+        // For now leaving it empty as in both branches
     }
 }

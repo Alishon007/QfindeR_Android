@@ -6,17 +6,28 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 public class ManagerDB {
-
-    public DbHelper dbHelper;
+    private DbHelper dbHelper;
     private Context context;
+    private SQLiteDatabase db;
 
     public ManagerDB(Context context) {
         this.context = context;
-        dbHelper = new DbHelper(context);
+        this.dbHelper = new DbHelper(context);
     }
 
-    public boolean insertarPaciente(int id, String nombres, String apellidos, String dependencia, String fechaNacimiento, String sexo, int edad) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+    // Método público para acceso a la base de datos
+    public SQLiteDatabase getWritableDatabase() {
+        return dbHelper.getWritableDatabase();
+    }
+
+    private void openDBWr() {
+        this.db = this.dbHelper.getWritableDatabase();
+    }
+
+    public boolean insertarPaciente(int id, String nombres, String apellidos,
+                                    String dependencia, String fechaNacimiento,
+                                    String sexo, int edad) {
+        SQLiteDatabase db = this.dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put("id", id);
@@ -37,5 +48,28 @@ public class ManagerDB {
             Toast.makeText(context, "Paciente registrado correctamente", Toast.LENGTH_SHORT).show();
             return true;
         }
+    }
+    public long crearUsuario(String nombres, String apellidos, String email, String telefono, String nacimiento, String password){
+        //1.Abrir la BD en modo escritura
+        openDBWr();
+        //2.Crear un contenedor de valores para almacenar columbas y datos a insertar
+        ContentValues valores = new ContentValues();
+        valores.put("nombres", nombres);
+        valores.put("apellidos", apellidos);
+        valores.put("email", email);
+        valores.put("telefono", telefono);
+        valores.put("nacimiento", nacimiento);
+        valores.put("password", password);
+        long result = db.insert("usuario", null, valores);
+        return result;
+    }
+    public long createRecordatorio(String fecha) {
+        System.out.println("Fecha registro: " + fecha);
+        openDBWr();
+        ContentValues valores = new ContentValues();
+        valores.put("fecha", fecha);
+        long result = db.insert("recordatorio", null, valores);
+        db.close();
+        return result;
     }
 }
