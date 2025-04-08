@@ -124,7 +124,7 @@
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/Registrarme"
+            android:id="@+id/txtRegistrarme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register"

@@ -28,10 +28,10 @@
             android:name=".controller.Menu_inicio_sesion"
             android:exported="false" />
         <activity
-            android:name=".controller.MainActivity"
+            android:name=".controller.Terminos"
             android:exported="false" />
         <activity
-            android:name=".controller.Terminos"
+            android:name=".controller.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
