@@ -13,5 +13,6 @@ public class Constantes {
             "fechaNacimiento text, " +
             "sexo text, " +
             "edad integer)";
+
 }
 

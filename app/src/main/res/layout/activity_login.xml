@@ -6,7 +6,7 @@
     android:background="@drawable/fondo"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".controller.Login">
+    tools:context=".controller.LoginActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -40,6 +40,7 @@
             android:paddingEnd="8dp"/>
 
         <EditText
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -71,6 +72,7 @@
             android:paddingEnd="8dp"/>
 
         <EditText
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"

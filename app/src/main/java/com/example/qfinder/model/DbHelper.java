@@ -13,6 +13,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Constantes.SENTENCIA_TABLA);
 
+
     }
 
     @Override
