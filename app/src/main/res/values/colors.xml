@@ -16,5 +16,7 @@
     <color name="azul_menu">#3E67D0</color>
     <color name="azul_brillante">#2280EF</color>
     <color name="gris">#707073</color>
+    <color name="azulEditText">#ADD3FF</color>
+    <color name="azulbuttonmenu">#8FB3FF</color>
 </resources>
 
