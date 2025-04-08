@@ -13,6 +13,12 @@
         android:theme="@style/Theme.QfindeR"
         tools:targetApi="31">
         <activity
+            android:name=".controller.MainEditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".controller.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
@@ -28,10 +34,10 @@
             android:name=".controller.Menu_inicio_sesion"
             android:exported="false" />
         <activity
-            android:name=".controller.MainActivity"
+            android:name=".controller.Terminos"
             android:exported="false" />
         <activity
-            android:name=".controller.Terminos"
+            android:name=".controller.MainPerfil"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
