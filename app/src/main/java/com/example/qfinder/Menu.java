@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qfinder.controller.ListaNotas;
+import com.example.qfinder.controller.MainPerfil;
 import com.example.qfinder.controller.RegistroPaciente;
 
 public class Menu extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class Menu extends AppCompatActivity {
         btnPerfil = findViewById(R.id.btnPerfil);
 
         btnPerfil.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, EditarPerfil.class);
+            Intent intent = new Intent(Menu.this, MainPerfil.class);
             startActivity(intent);
         });
         btnReconrdatorio.setOnClickListener(v -> {
