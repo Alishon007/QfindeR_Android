@@ -6,12 +6,14 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.example.qfinder.controller.ListaNotas;
+import com.example.qfinder.controller.CrearNota;
+import com.example.qfinder.controller.ListaNotas;
 import com.example.qfinder.controller.RegistroPaciente;
 
 public class Menu extends AppCompatActivity {
     Button btnReconrdatorio;
     Button btRegistroPaciente;
+    Button btnNotas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +22,14 @@ public class Menu extends AppCompatActivity {
 
         btnReconrdatorio = findViewById(R.id.btnRecordatorio);
         btRegistroPaciente = findViewById(R.id.btnRegitroPaciente);
-        
+        btnNotas = findViewById(R.id.btnNotas);
+
         btnReconrdatorio.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, Recordatorio.class);
+            startActivity(intent);
+        });
+        btnNotas.setOnClickListener(v -> {
+            Intent intent = new Intent(Menu.this, ListaNotas.class);
             startActivity(intent);
         });
         btRegistroPaciente.setOnClickListener(v -> {

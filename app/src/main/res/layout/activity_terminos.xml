@@ -14,21 +14,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="360dp"
         android:layout_height="414dp"
         android:background="@color/white"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Terminos"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/black" />
 
+        <!-- Botón estilizado, si lo deseas dejar dentro -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:paddingVertical="26dp"
+            android:paddingHorizontal="10dp"
+            android:text="ACUDIENTE"
+            android:textSize="18sp"
+            android:backgroundTint="@color/azul_claro"
+            android:textColor="@color/white"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp"
+            android:elevation="6dp"
+            style="@style/Widget.MaterialComponents.Button" />
     </LinearLayout>
 
     <Button
@@ -37,6 +56,6 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:text="@string/AceptarTerminos"
-        android:backgroundTint="@color/azul"/>
+        android:backgroundTint="@color/azul" />
 
 </LinearLayout>
