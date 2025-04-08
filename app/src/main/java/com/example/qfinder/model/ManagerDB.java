@@ -2,6 +2,7 @@ package com.example.qfinder.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
@@ -71,5 +72,17 @@ public class ManagerDB {
         long result = db.insert("recordatorio", null, valores);
         db.close();
         return result;
+    }
+
+    public boolean verificarCredenciales(String email, String password) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "SELECT * FROM usuario WHERE email = ? AND password = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{email, password});
+
+        boolean existeUsuario = cursor.moveToFirst(); // Devuelve true si hay un resultado
+        cursor.close();
+        db.close();
+
+        return existeUsuario;
     }
 }
