@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/fondo"
+    tools:context=".controller.Menu_inicio_sesion"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#33000000"
+        android:padding="26dp"
+        android:layout_marginBottom="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="   ¿Cómo deseas registrarte a Qfinder?   "
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </LinearLayout>
+
+
+    <!-- Imagen
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/img"
+        android:layout_marginBottom="24dp" />
+ -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:orientation="vertical">
+        <!-- Botón EMPRESA -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEmpresa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:paddingVertical="26dp"
+            android:paddingHorizontal="100dp"
+            android:text="EMPRESA"
+            android:textSize="18sp"
+            android:layout_marginBottom="60dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="16dp"
+            android:backgroundTint="@color/azul_claro"
+            android:textColor="@color/white"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp"
+            android:elevation="6dp" />
+
+        <!-- Botón CUIDADOR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCuidador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:paddingVertical="26dp"
+            android:paddingHorizontal="100dp"
+            android:text="CUIDADOR"
+            android:textSize="18sp"
+            android:layout_marginBottom="60dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="26dp"
+            android:backgroundTint="@color/azul_claro"
+            android:textColor="@color/white"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp"
+            android:elevation="6dp" />
+
+        <!-- Botón ACUDIENTE -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAcudiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:paddingVertical="26dp"
+            android:paddingHorizontal="100dp"
+            android:text="ACUDIENTE"
+            android:textSize="18sp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="16dp"
+            android:backgroundTint="@color/azul_claro"
+            android:textColor="@color/white"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp"
+            android:elevation="6dp" />
+    </LinearLayout>
+
+</LinearLayout>
