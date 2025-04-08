@@ -1,4 +1,4 @@
-package com.example.qfinder.controller;
+package com.example.qfinder;
 
 import android.os.Bundle;
 
@@ -8,15 +8,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.qfinder.R;
-
-public class Menu_inicio_sesion extends AppCompatActivity {
+public class EditarPerfil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_menu_inicio_sesion);
+        setContentView(R.layout.activity_editar_perfil);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
