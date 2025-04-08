@@ -15,6 +15,9 @@
 
         <!-- Lista de Activities -->
         <activity
+            android:name=".controller.PerfilPaciente"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
