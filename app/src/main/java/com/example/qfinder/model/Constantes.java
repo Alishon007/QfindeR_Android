@@ -1,7 +1,7 @@
 package com.example.qfinder.model;
 
 public class Constantes {
-    public static String NAME_BD ="qfinderZulema";
+    public static String NAME_BD ="qfinderZulema2";
     public static  int NUM_VERSION = 1;
     public static String SENTENCIA_CREAR_USUARIO = "create table usuario(" +
                 "nombres VARCHAR(100) NOT NULL," +
@@ -11,4 +11,5 @@ public class Constantes {
                 "nacimiento DATE," +
                 "password VARCHAR(20) NOT NULL" +
             ");";
+    public static String SENTENCIA_CREAR_RECORDATORIO = "CREATE TABLE recordatorio(fecha DATE)";
 }

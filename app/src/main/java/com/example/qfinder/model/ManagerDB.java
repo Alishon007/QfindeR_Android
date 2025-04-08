@@ -37,4 +37,15 @@ public class ManagerDB  {
         long result = db.insert("usuario", null, valores);
         return result;
     }
+
+    public long createRecordatorio(String fecha){
+        System.out.println("Mi fechaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: " +fecha);
+        //1.Abrir la BD en modo escritura
+        openDBWr();
+        //2.Crear un contenedor de valores para almacenar columbas y datos a insertar
+        ContentValues valores = new ContentValues();
+        valores.put("fecha", fecha);
+        long result = db.insert("recordatorio", null, valores);
+        return result;
+    }
 }

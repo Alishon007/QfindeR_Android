@@ -14,6 +14,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Constantes.SENTENCIA_CREAR_USUARIO);
+        db.execSQL(Constantes.SENTENCIA_CREAR_RECORDATORIO);
     }
 
     @Override
