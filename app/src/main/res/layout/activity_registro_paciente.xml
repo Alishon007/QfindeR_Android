@@ -3,209 +3,153 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/fondo"
-    tools:context=".controller.RegistroUsuario">
+    android:gravity="center_horizontal"
+    tools:context=".controller.RegistroPaciente">
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/unete"
-            android:textSize="40dp"
-            android:textColor="@color/white"
-            android:layout_marginRight="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/QfindeR"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/darkBlue"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:paddingHorizontal="70dp"
-        android:paddingVertical="10dp"
-        android:text="@string/text1"
-        android:textColor="@color/white"
-        android:textSize="25dp" />
+        android:layout_marginBottom="10dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        >
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="10dp">
+            android:text="Únete a"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="6dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nombre"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxStrokeColor="@color/darkBlue"
-                app:boxStrokeWidth="2dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtNombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:padding="10dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/apellido"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxStrokeColor="@color/darkBlue"
-                app:boxStrokeWidth="2dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtApellido"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:padding="10dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
+            android:src="@drawable/img"
+            android:contentDescription="Logo Qfinder"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:background="@color/darkBlue"
+        android:paddingVertical="12dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registra tus datos como paciente"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
         android:layout_marginHorizontal="20dp">
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/correo"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxStrokeColor="@color/darkBlue"
-            app:boxStrokeWidth="2dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombres"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtCorreo"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/black"
-                android:padding="10dp" />
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxStrokeColor="@color/darkBlue"
+                app:boxStrokeWidth="2dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:padding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/telefono"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxStrokeColor="@color/darkBlue"
-            app:boxStrokeWidth="2dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apellido"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtTelefono"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:padding="10dp" />
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxStrokeColor="@color/darkBlue"
+                app:boxStrokeWidth="2dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:padding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nacimiento"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            />
+            android:text="Dependencia"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="DD/MM/AA"
             app:boxBackgroundColor="@color/white"
             app:boxCornerRadiusTopStart="15dp"
             app:boxCornerRadiusTopEnd="15dp"
@@ -215,23 +159,28 @@
             app:boxStrokeWidth="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtNacimiento"
+                android:id="@+id/etDependencia"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:padding="10dp" />
-
+                android:padding="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contrasena"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            />
+            android:text="Fecha de nacimiento"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -245,42 +194,115 @@
             app:boxStrokeWidth="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtContrasena"
+                android:id="@+id/etFechaNacimiento"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:inputType="textPassword"
+                android:inputType="date"
                 android:textColor="@color/black"
-                android:padding="10dp" />
-
+                android:padding="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxStrokeColor="@color/darkBlue"
+            app:boxStrokeWidth="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSexo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edad"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxStrokeColor="@color/darkBlue"
+            app:boxStrokeWidth="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEdad"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
         <Button
+            android:id="@+id/btnVolver"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/btnVolver"
-            android:backgroundTint="@color/darkBlue"
-            android:textSize="20dp"
-            android:padding="20dp"
-            android:layout_marginHorizontal="10dp"
-            />
+            android:text="Volver"
+            android:backgroundTint="@color/blue"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginHorizontal="10dp"/>
+
         <Button
+            android:id="@+id/btnContinuar"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/btnCont"
-            android:backgroundTint="@color/darkBlue"
-            android:textSize="20dp"
-            android:padding="20dp"
-            android:layout_marginHorizontal="10dp"
-            />
+            android:text="Continuar"
+            android:backgroundTint="@color/blue"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginHorizontal="10dp"/>
     </LinearLayout>
 
 </LinearLayout>
