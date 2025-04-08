@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Menu"
+    android:background="@drawable/fondo">
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/dark_blue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="50dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/perfil_foto"
+                android:contentDescription="User Profile"/>
+
+
+
+
+            <Button
+                android:id="@+id/btnPerfil"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Perfil"
+                android:background="@drawable/button_style"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/btnNotas"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Registrar notas"
+                android:background="@drawable/button_style"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/btnTurnos"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Turnos"
+                android:background="@drawable/button_style"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/btnRecordatorio"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Recordatorio"
+                android:background="@drawable/button_style"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/btnUbicacion"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Ubicación"
+                android:background="@drawable/button_style"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+</LinearLayout>
