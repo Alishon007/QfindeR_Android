@@ -55,7 +55,7 @@
                 android:id="@+id/btnTurnos"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Turnos"
+                android:text="Registrar paciente"
                 android:background="@drawable/button_style"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="30dp"/>
@@ -73,7 +73,7 @@
                 android:id="@+id/btnUbicacion"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Ubicación"
+                android:text="Cerrar Sesión"
                 android:background="@drawable/button_style"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="30dp"/>
