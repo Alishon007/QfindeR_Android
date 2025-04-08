@@ -21,6 +21,9 @@
             android:name=".EditarPerfil"
             android:exported="false" />
         <activity
+            android:name=".controller.MainEditarPerfil"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
@@ -43,6 +46,9 @@
             android:exported="false" />
         <activity
             android:name=".Recordatorio"
+            android:exported="false" />
+        <activity
+            android:name=".controller.MainPerfil"
             android:exported="false" />
 
         <!-- Activity principal (launcher) -->

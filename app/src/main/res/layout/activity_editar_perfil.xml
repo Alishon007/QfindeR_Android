@@ -1,208 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarPerfil"
-    android:orientation="vertical"
-    android:background="@drawable/fondo">
+    android:background="@drawable/fondo"
+    tools:context=".controller.MainEditarPerfil">
 
+    <!-- Icono menú -->
     <ImageView
-        android:layout_width="33dp"
-        android:layout_height="33dp"
+        android:id="@+id/menu_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentStart="true"
         android:src="@drawable/menu"
-        android:layout_marginTop="13dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginBottom="12dp"/>
+        android:contentDescription="Menú" />
+
+    <!-- Contenedor de perfil -->
     <LinearLayout
-        android:layout_width="379dp"
-        android:layout_height="769dp"
-        android:layout_gravity="center"
-        android:background="@drawable/esquinas"
-        android:orientation="vertical">
+        android:id="@+id/profile_container"
+        android:layout_width="387dp"
+        android:layout_height="660dp"
+        android:layout_below="@id/menu_icon"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/profile_card"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ImageView
-            android:layout_width="118dp"
-            android:layout_height="114dp"
+        <!-- Foto -->
+        <FrameLayout
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_gravity="center"
-            android:layout_marginTop="47dp"
-            android:src="@drawable/morgan" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp">
 
-        <TextView
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_bg"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img" />
+        </FrameLayout>
+
+        <!-- Nombre -->
+        <EditText
+            android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
             android:text="Morgan James"
-            android:textColor="@color/black"
-            android:textSize="22dp"
+            android:textColor="#000"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+
+        <!-- Campo: USUARIO -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="12dp"
-            android:text="Editar Perfil"
-            android:textColor="@color/black"
-            android:textSize="22dp"
-            android:textStyle="bold"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/lineamenu"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="12dp"
-            android:text="Usuario:"
-            android:textColor="@color/black"
-            android:textSize="22dp"
-            android:textStyle="bold"/>
+            android:layout_marginTop="15dp"
+            android:text="USUARIO:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_width="348dp"
-            android:layout_height="28dp"
-            android:background="@color/azulEditText"
-            android:padding="6dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="#A5C7FF">
 
             <EditText
-                android:id="@+id/edtUsuario"
-                android:layout_width="300dp"
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="Usuario:"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:paddingEnd="36dp"
                 android:inputType="text"
-                android:gravity="center_vertical"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/editar" />
-
+                android:padding="8dp"
+                android:text="morganjames02"
+                android:textColor="#555" />
         </RelativeLayout>
 
-
+        <!-- Campo: CONTACTO -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="12dp"
-            android:text="Contacto:"
-            android:textColor="@color/black"
-            android:textSize="22dp"
-            android:textStyle="bold"/>
+            android:text="CONTACTO:"
+            android:textSize="14dp"
+            android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_width="348dp"
-            android:layout_height="28dp"
-            android:background="@color/azulEditText"
-            android:padding="6dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="#A5C7FF">
 
             <EditText
-                android:id="@+id/edtCotacto"
-                android:layout_width="300dp"
+                android:id="@+id/etContacto"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="Contacto:"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:paddingEnd="36dp"
-                android:inputType="text"
-                android:gravity="center_vertical"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/editar" />
-
+                android:inputType="phone"
+                android:padding="8dp"
+                android:text="3133596234" />
         </RelativeLayout>
 
-
+        <!-- Campo: EMAIL -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="12dp"
-            android:text="Email:"
-            android:textColor="@color/black"
-            android:textSize="22dp"
-            android:textStyle="bold"/>
+            android:text="EMAIL:"
+            android:textSize="14dp"
+            android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_width="348dp"
-            android:layout_height="28dp"
-            android:background="@color/azulEditText"
-            android:padding="6dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="#A5C7FF">
 
             <EditText
-                android:id="@+id/edtEmail"
-                android:layout_width="300dp"
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="EmaiL:"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:paddingEnd="36dp"
-                android:inputType="text"
-                android:gravity="center_vertical"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/editar" />
-
+                android:inputType="textEmailAddress"
+                android:padding="8dp"
+                android:text="morganjames@gmail.com" />
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/lineamenu"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#000" />
 
+        <!-- Botón GUARDAR -->
         <Button
-            android:id="@+id/guardarcambios"
+            android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GUARDAR"
-            android:textSize="22dp"
-            android:textStyle="bold"
             android:layout_gravity="center"
-            android:backgroundTint="@color/azulbuttonmenu"
-            android:textColor="@color/black"
-            android:layout_marginTop="24dp"/>
-
-
-
-
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#A5C7FF"
+            android:text="GUARDAR"
+            android:textColor="#000"
+            android:textStyle="bold" />
     </LinearLayout>
-
-
-
-
-
-    </LinearLayout>
+</RelativeLayout>
