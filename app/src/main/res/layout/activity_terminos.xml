@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:minHeight="64dp"
             android:paddingVertical="26dp"
-            android:paddingHorizontal="100dp"
+            android:paddingHorizontal="10dp"
             android:text="ACUDIENTE"
             android:textSize="18sp"
             style="@style/Widget.MaterialComponents.Button"
