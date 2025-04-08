@@ -58,7 +58,7 @@
                 android:translationZ="8dp"/>
 
             <Button
-                android:id="@+id/btnTurnos"
+                android:id="@+id/btnRegitroPaciente"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Registrar paciente"
