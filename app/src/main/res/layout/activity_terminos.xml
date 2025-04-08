@@ -7,7 +7,7 @@
     android:background="@drawable/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Terminos">
+    tools:context=".controller.Terminos">
 
     <ImageView
         android:layout_marginTop="20dp"
