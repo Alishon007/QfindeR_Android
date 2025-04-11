@@ -4,29 +4,6 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <DropdownSelection timestamp="2025-04-08T19:23:21.752579900Z">
-=======
-=======
-        <DropdownSelection timestamp="2025-04-08T14:32:53.325773100Z">
->>>>>>> origin/German
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\sebas\.android\avd\Pixel_8_API_Baklava.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
-<<<<<<< HEAD
-=======
->>>>>>> origin/moriones
-=======
->>>>>>> origin/hanz
-=======
->>>>>>> origin
->>>>>>> origin/German
       </SelectionState>
     </selectionStates>
   </component>

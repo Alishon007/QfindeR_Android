@@ -20,14 +20,14 @@ public class Menu extends AppCompatActivity {
     Button btRegistroPaciente;
     Button btnNotas;
 
-<<<<<<< HEAD
+
     public DrawerLayout drawerLayout;
     public ImageView menuIcon;
     public NavigationView navigationView;
 
-=======
+
     Button btnPerfil;
->>>>>>> 0c55815143edc74c03495618f2877581e81c0bdc
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

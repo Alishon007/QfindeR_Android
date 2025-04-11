@@ -2,13 +2,17 @@ package com.example.qfinder.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.qfinder.R;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainPerfil extends AppCompatActivity {
 
@@ -16,10 +20,24 @@ public class MainPerfil extends AppCompatActivity {
     private TextView tvNombre, etUsuario, etContacto, etEmail;
     private Button btnEditar;
 
+    DrawerLayout drawerLayout;
+    ImageView menu_icon;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        menu_icon = findViewById(R.id.menu_icon);
+
+        menu_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 
         // Referencias a las vistas
         imgPerfil = findViewById(R.id.imgPerfil);
