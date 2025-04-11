@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.qfinder.controller.ListaNotas;
 import com.example.qfinder.controller.MainPerfil;
+import com.example.qfinder.controller.PerfilPaciente;
 import com.example.qfinder.controller.RegistroPaciente;
 import com.google.android.material.navigation.NavigationView;
 
@@ -19,6 +20,9 @@ public class Menu extends AppCompatActivity {
     Button btnReconrdatorio;
     Button btRegistroPaciente;
     Button btnNotas;
+    Button btnPerfilPaciente;
+
+
 
 
     public DrawerLayout drawerLayout;
@@ -48,6 +52,9 @@ public class Menu extends AppCompatActivity {
         btRegistroPaciente = findViewById(R.id.btnRegitroPaciente);
         btnNotas = findViewById(R.id.btnNotas);
         btnPerfil = findViewById(R.id.btnPerfil);
+        btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+
+
 
         btnPerfil.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, MainPerfil.class);
@@ -65,6 +72,11 @@ public class Menu extends AppCompatActivity {
             Intent intent = new Intent(Menu.this, RegistroPaciente.class);
             startActivity(intent);
         });
-
+        btnPerfilPaciente.setOnClickListener(v -> {
+            Intent intent = new Intent(Menu.this, PerfilPaciente.class);
+            startActivity(intent);
+        });
     }
+
+
 }

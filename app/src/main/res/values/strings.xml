@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Qfinder-Front</string>
+    <string name="app_name">Qfinder</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
     <string name="olvideContraseña">¿Olvidaste tu contraseña?</string>
