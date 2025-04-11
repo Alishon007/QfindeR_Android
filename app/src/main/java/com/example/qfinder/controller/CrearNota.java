@@ -16,6 +16,8 @@ public class CrearNota extends AppCompatActivity {
     Button btnGuardar;
     DbHelper dbHelper;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

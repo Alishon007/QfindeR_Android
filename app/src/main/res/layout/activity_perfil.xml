@@ -224,11 +224,18 @@
                 android:id="@+id/btnRegitroPaciente"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Turnos"
+                android:text="Registrar Paciente"
                 android:background="@drawable/button_style"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="30dp" />
-
+            <Button
+                android:id="@+id/btnPerfilPaciente"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Perfil paciente"
+                android:background="@drawable/button_style"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp" />
             <Button
                 android:id="@+id/btnRecordatorio"
                 android:layout_width="200dp"
@@ -242,7 +249,7 @@
                 android:id="@+id/btnLogout"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Ubicación"
+                android:text="Logout"
                 android:background="@drawable/button_style"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="30dp" />

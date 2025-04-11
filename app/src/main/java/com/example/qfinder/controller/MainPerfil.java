@@ -11,10 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.qfinder.Menu;
 import com.example.qfinder.R;
+import com.example.qfinder.Recordatorio;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainPerfil extends AppCompatActivity {
+    Button btnReconrdatorio;
+    Button btRegistroPaciente;
+    Button btnNotas;
+    Button btnPerfilPaciente;
+    Button btnPerfil;
 
     private ImageView imgPerfil;
     private TextView tvNombre, etUsuario, etContacto, etEmail;
@@ -37,6 +44,35 @@ public class MainPerfil extends AppCompatActivity {
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
+        });
+
+        btnReconrdatorio = findViewById(R.id.btnRecordatorio);
+        btRegistroPaciente = findViewById(R.id.btnRegitroPaciente);
+        btnNotas = findViewById(R.id.btnNotas);
+        btnPerfil = findViewById(R.id.btnPerfil);
+        btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+
+
+
+        btnPerfil.setOnClickListener(v -> {
+            Intent intent = new Intent(MainPerfil.this, MainPerfil.class);
+            startActivity(intent);
+        });
+        btnReconrdatorio.setOnClickListener(v -> {
+            Intent intent = new Intent(MainPerfil.this, Recordatorio.class);
+            startActivity(intent);
+        });
+        btnNotas.setOnClickListener(v -> {
+            Intent intent = new Intent(MainPerfil.this, ListaNotas.class);
+            startActivity(intent);
+        });
+        btRegistroPaciente.setOnClickListener(v -> {
+            Intent intent = new Intent(MainPerfil.this, RegistroPaciente.class);
+            startActivity(intent);
+        });
+        btnPerfilPaciente.setOnClickListener(v -> {
+            Intent intent = new Intent(MainPerfil.this, PerfilPaciente.class);
+            startActivity(intent);
         });
 
         // Referencias a las vistas

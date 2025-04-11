@@ -1,14 +1,22 @@
 package com.example.qfinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.qfinder.controller.ListaNotas;
+import com.example.qfinder.controller.MainPerfil;
+import com.example.qfinder.controller.PerfilPaciente;
+import com.example.qfinder.controller.RegistroPaciente;
 import com.example.qfinder.model.ManagerDB;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
@@ -23,10 +31,58 @@ public class Recordatorio extends AppCompatActivity {
     ManagerDB managerDB;
     Button btnSeleccionarFecha;
     ListView listaDeRecordatorios;
+
+    DrawerLayout drawerLayout;
+    ImageView menu_icon;
+
+    Button btnReconrdatorio;
+    Button btRegistroPaciente;
+    Button btnNotas;
+    Button btnPerfilPaciente;
+    Button btnPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordatorio);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        menu_icon = findViewById(R.id.menu_icon);
+
+        menu_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        btnReconrdatorio = findViewById(R.id.btnRecordatorio);
+        btRegistroPaciente = findViewById(R.id.btnRegitroPaciente);
+        btnNotas = findViewById(R.id.btnNotas);
+        btnPerfil = findViewById(R.id.btnPerfil);
+        btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+
+
+
+        btnPerfil.setOnClickListener(v -> {
+            Intent intent = new Intent(Recordatorio.this, MainPerfil.class);
+            startActivity(intent);
+        });
+        btnReconrdatorio.setOnClickListener(v -> {
+            Intent intent = new Intent(Recordatorio.this, Recordatorio.class);
+            startActivity(intent);
+        });
+        btnNotas.setOnClickListener(v -> {
+            Intent intent = new Intent(Recordatorio.this, ListaNotas.class);
+            startActivity(intent);
+        });
+        btRegistroPaciente.setOnClickListener(v -> {
+            Intent intent = new Intent(Recordatorio.this, RegistroPaciente.class);
+            startActivity(intent);
+        });
+        btnPerfilPaciente.setOnClickListener(v -> {
+            Intent intent = new Intent(Recordatorio.this, PerfilPaciente.class);
+            startActivity(intent);
+        });
 
         managerDB = new ManagerDB(Recordatorio.this);
 

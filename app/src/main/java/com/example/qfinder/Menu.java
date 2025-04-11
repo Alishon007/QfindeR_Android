@@ -21,8 +21,7 @@ public class Menu extends AppCompatActivity {
     Button btRegistroPaciente;
     Button btnNotas;
     Button btnPerfilPaciente;
-
-
+    Button btnPerfil;
 
 
     public DrawerLayout drawerLayout;
@@ -30,7 +29,6 @@ public class Menu extends AppCompatActivity {
     public NavigationView navigationView;
 
 
-    Button btnPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
