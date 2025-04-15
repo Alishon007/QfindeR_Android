@@ -33,7 +33,7 @@ public class ListaNotas extends AppCompatActivity {
     Button btRegistroPaciente;
     Button btnNotas;
     Button btnPerfilPaciente;
-    Button btnPerfil;
+    Button btnPerfil, btnLogout;
 
 
     ArrayList<String> notas = new ArrayList<>();
@@ -61,6 +61,12 @@ public class ListaNotas extends AppCompatActivity {
         btnNotas = findViewById(R.id.btnNotas);
         btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+        btnLogout = findViewById(R.id.btnLogout);
+
+        btnLogout.setOnClickListener(v -> {
+            Intent intent = new Intent(ListaNotas.this, Login.class);
+            startActivity(intent);
+        });
 
 
 

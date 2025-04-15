@@ -21,7 +21,7 @@ public class MainPerfil extends AppCompatActivity {
     Button btRegistroPaciente;
     Button btnNotas;
     Button btnPerfilPaciente;
-    Button btnPerfil;
+    Button btnPerfil, btnLogout;
 
     private ImageView imgPerfil;
     private TextView tvNombre, etUsuario, etContacto, etEmail;
@@ -51,6 +51,12 @@ public class MainPerfil extends AppCompatActivity {
         btnNotas = findViewById(R.id.btnNotas);
         btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+        btnLogout = findViewById(R.id.btnLogout);
+
+        btnLogout.setOnClickListener(v -> {
+            Intent intent = new Intent(MainPerfil.this, Login.class);
+            startActivity(intent);
+        });
 
 
 

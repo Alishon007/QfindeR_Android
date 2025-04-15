@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.qfinder.controller.ListaNotas;
+import com.example.qfinder.controller.Login;
 import com.example.qfinder.controller.MainPerfil;
 import com.example.qfinder.controller.PerfilPaciente;
 import com.example.qfinder.controller.RegistroPaciente;
@@ -21,7 +22,7 @@ public class Menu extends AppCompatActivity {
     Button btRegistroPaciente;
     Button btnNotas;
     Button btnPerfilPaciente;
-    Button btnPerfil;
+    Button btnPerfil, btnLogout;
 
 
     public DrawerLayout drawerLayout;
@@ -51,8 +52,12 @@ public class Menu extends AppCompatActivity {
         btnNotas = findViewById(R.id.btnNotas);
         btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+        btnLogout = findViewById(R.id.btnLogout);
 
-
+        btnLogout.setOnClickListener(v -> {
+            Intent intent = new Intent(Menu.this, Login.class);
+            startActivity(intent);
+        });
 
         btnPerfil.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, MainPerfil.class);
