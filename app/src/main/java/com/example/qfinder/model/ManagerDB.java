@@ -85,4 +85,12 @@ public class ManagerDB {
 
         return existeUsuario;
     }
+
+
+    public Cursor obtenerPacientes() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        // Devuelve solo los campos necesarios: id, nombres y dependencia
+        return db.rawQuery("SELECT id, nombres, apellidos, dependencia FROM Paciente", null);
+    }
+
 }

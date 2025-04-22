@@ -62,6 +62,7 @@
                             android:src="@drawable/perfil_foto" />
 
                         <TextView
+                            android:id="@+id/txtNombre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Morgan James"

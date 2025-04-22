@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.qfinder.controller.ListaNotas;
+import com.example.qfinder.controller.ListaPacientes;
 import com.example.qfinder.controller.Login;
 import com.example.qfinder.controller.MainPerfil;
 import com.example.qfinder.controller.PerfilPaciente;
@@ -76,7 +77,7 @@ public class Menu extends AppCompatActivity {
             startActivity(intent);
         });
         btnPerfilPaciente.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, PerfilPaciente.class);
+            Intent intent = new Intent(Menu.this, ListaPacientes.class);
             startActivity(intent);
         });
     }
