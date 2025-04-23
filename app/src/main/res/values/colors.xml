@@ -12,5 +12,11 @@
     <color name="azul">#4B9AF6</color>
     <color name="otro_azul">#4067ce</color>
     <color name="dark_blue">#1E3A8A</color>
+    <color name="rojo_boton">#EF4444</color>
+    <color name="azul_menu">#3E67D0</color>
+    <color name="azul_brillante">#2280EF</color>
+    <color name="gris">#707073</color>
+    <color name="azulEditText">#ADD3FF</color>
+    <color name="azulbuttonmenu">#8FB3FF</color>
 </resources>
 

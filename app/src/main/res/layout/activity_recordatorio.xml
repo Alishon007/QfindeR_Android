@@ -5,112 +5,131 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ListaNotas">
+    tools:context=".Recordatorio">
 
     <!-- CONTENIDO PRINCIPAL -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo">
 
         <LinearLayout
-            android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/fondo">
+            android:orientation="vertical">
 
-            <!-- Header con ícono menú -->
+            <!-- ICONO MENÚ -->
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:layout_gravity="start"
+                android:src="@drawable/img_1"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Menú" />
+
+            <!-- HEADER -->
             <LinearLayout
-                android:id="@+id/topHeader"
-                android:orientation="horizontal"
+                android:id="@+id/cntHeader"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginHorizontal="25dp">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/menu_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/img_1"
-                    android:contentDescription="Menú"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_marginTop="45dp"
-                    android:layout_gravity="start" />
-            </LinearLayout>
-
-            <!-- Logo -->
-            <LinearLayout
-                android:id="@+id/containerLogo"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginBottom="25dp">
-
-                <ImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/qfinderlogoo" />
-            </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp">
 
-            <!-- Título -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#5A4055CE"
-                android:paddingVertical="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/QfindeR"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:text="@string/titulo_recordatorio"
                     android:textColor="@color/white"
-                    android:textSize="35sp"
-                    android:text="@string/registrar_title" />
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/darkBlue"
+                    android:paddingHorizontal="70dp"
+                    android:paddingVertical="10dp" />
             </LinearLayout>
 
-            <!-- Contenido: Buscador + Lista -->
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="30dp"
+            <!-- FORMULARIO DE RECORDATORIO -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="20dp"
-                android:paddingHorizontal="15dp"
-                android:background="@drawable/border_azul">
-
-                <SearchView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:queryHint="Buscar Notas"
-                    android:iconifiedByDefault="false"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/border_rounded" />
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                app:contentPadding="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                android:background="@color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp">
+                    android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/agregarNota"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/anadir"
-                        android:padding="15dp"
-                        android:background="@drawable/border_rounded" />
+                        app:boxBackgroundColor="@color/white"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxStrokeColor="@color/darkBlue"
+                        app:boxStrokeWidth="2dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="30dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtNombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:padding="10dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSeleccionarFecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="@string/recordar_text"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif"
+                        android:backgroundTint="@color/azul_brillante" />
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- LISTA DE RECORDATORIOS -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                app:contentPadding="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                android:background="@color/white">
 
                 <ListView
-                    android:id="@+id/listaNotasss"
+                    android:id="@+id/listaDeRecordatorios"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:layout_height="300dp" />
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 
@@ -167,6 +186,7 @@
                 android:backgroundTint="@color/darkBlue"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="15dp"/>
+
             <Button
                 android:id="@+id/btnPerfilPaciente"
                 android:layout_width="200dp"
@@ -177,6 +197,7 @@
                 android:backgroundTint="@color/darkBlue"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="15dp"/>
+
             <Button
                 android:id="@+id/btnRecordatorio"
                 android:layout_width="200dp"

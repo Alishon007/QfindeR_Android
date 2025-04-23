@@ -6,7 +6,7 @@
     android:background="@drawable/fondo"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".controller.LoginActivity">
+    tools:context=".controller.Login">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
             android:paddingEnd="8dp"/>
 
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -72,7 +72,7 @@
             android:paddingEnd="8dp"/>
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"
@@ -126,7 +126,7 @@
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/Registrarme"
+            android:id="@+id/txtRegistrarme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register"

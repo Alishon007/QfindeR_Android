@@ -6,81 +6,62 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.qfinder.controller.ListaNotas;
-import com.example.qfinder.controller.ListaPacientes;
-import com.example.qfinder.controller.Login;
 import com.example.qfinder.controller.MainPerfil;
 import com.example.qfinder.controller.PerfilPaciente;
 import com.example.qfinder.controller.RegistroPaciente;
-import com.google.android.material.navigation.NavigationView;
 
-public class Menu extends AppCompatActivity {
+public class EditarPerfil extends AppCompatActivity {
+
     Button btnReconrdatorio;
     Button btRegistroPaciente;
     Button btnNotas;
     Button btnPerfilPaciente;
-    Button btnPerfil, btnLogout;
-
-
-    public DrawerLayout drawerLayout;
-    public ImageView menuIcon;
-    public NavigationView navigationView;
-
+    Button btnPerfil;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-
-        drawerLayout = findViewById(R.id.drawerLayout);
-        menuIcon = findViewById(R.id.menuIcon);
-        navigationView = findViewById(R.id.navigationView);
-
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_editar_perfil);
 
         btnReconrdatorio = findViewById(R.id.btnRecordatorio);
         btRegistroPaciente = findViewById(R.id.btnRegitroPaciente);
         btnNotas = findViewById(R.id.btnNotas);
         btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
-        btnLogout = findViewById(R.id.btnLogout);
 
-        btnLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, Login.class);
-            startActivity(intent);
-        });
+
 
         btnPerfil.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, MainPerfil.class);
+            Intent intent = new Intent(EditarPerfil.this, MainPerfil.class);
             startActivity(intent);
         });
         btnReconrdatorio.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, Recordatorio.class);
+            Intent intent = new Intent(EditarPerfil.this, Recordatorio.class);
             startActivity(intent);
         });
         btnNotas.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, ListaNotas.class);
+            Intent intent = new Intent(EditarPerfil.this, ListaNotas.class);
             startActivity(intent);
         });
         btRegistroPaciente.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, RegistroPaciente.class);
+            Intent intent = new Intent(EditarPerfil.this, RegistroPaciente.class);
             startActivity(intent);
         });
         btnPerfilPaciente.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, ListaPacientes.class);
+            Intent intent = new Intent(EditarPerfil.this, PerfilPaciente.class);
             startActivity(intent);
         });
+
     }
-
-
 }

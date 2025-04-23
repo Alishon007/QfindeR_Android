@@ -13,28 +13,47 @@
         android:theme="@style/Theme.QfindeR"
         tools:targetApi="31">
         <activity
-            android:name=".controller.Terminos"
+            android:name=".controller.ListaPacientes"
+            android:exported="false" />
+        <!-- Lista de Activities -->
+        <activity
+            android:name=".controller.PerfilPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".controller.MainEditarPerfil"
             android:exported="false" />
         <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
+            android:name=".controller.CrearNota"
+            android:exported="false" />
+        <activity
             android:name=".controller.RegistroUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".controller.Terminos"
             android:exported="false" />
         <activity
             android:name=".controller.ListaNotas"
             android:exported="false" />
         <activity
+            android:name=".controller.Login"
+            android:exported="false" />
+        <activity
             android:name=".controller.RegistroPaciente"
             android:exported="false" />
         <activity
-            android:name=".controller.Menu_inicio_sesion"
+            android:name=".Recordatorio"
             android:exported="false" />
+        <activity
+            android:name=".controller.MainPerfil"
+            android:exported="false" /> <!-- Activity principal (launcher) -->
         <activity
             android:name=".controller.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

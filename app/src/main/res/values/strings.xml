@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Qfinder-Front</string>
+    <string name="app_name">Qfinder</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
     <string name="olvideContraseña">¿Olvidaste tu contraseña?</string>
@@ -54,5 +54,8 @@ Para consultas, comunicarse con el hospital a través de sus canales oficiales.<
     <string name="nota2">Nota 2</string>
     <string name="nota3">Nota 3</string>
     <string name="nota4">Nota 4</string>
+
+    <string name="titulo_recordatorio">Recordatorio</string>
+    <string name="recordar_text">Recordar</string>
 </resources>
 
