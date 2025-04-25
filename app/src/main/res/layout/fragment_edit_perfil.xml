@@ -4,7 +4,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarPerfil">
+    tools:context=".EditPerfil">
 
     <!-- Contenido principal -->
     <RelativeLayout
@@ -12,24 +12,12 @@
         android:layout_height="match_parent"
         android:background="@drawable/fondo">
 
-        <!-- Icono menú -->
-        <ImageView
-            android:id="@+id/menu_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="16dp"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/img_1"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Menú" />
 
         <!-- Contenedor de perfil -->
         <LinearLayout
             android:id="@+id/profile_container"
             android:layout_width="387dp"
             android:layout_height="660dp"
-            android:layout_below="@id/menu_icon"
             android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
@@ -46,12 +34,13 @@
                 android:layout_marginBottom="8dp">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/circle_bg"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img" />
+                    android:id="@+id/imgPerfilEditar"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/perfil_foto" />
             </FrameLayout>
 
             <EditText
@@ -62,7 +51,6 @@
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:text="Morgan James"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -93,7 +81,7 @@
                     android:background="@android:color/transparent"
                     android:inputType="text"
                     android:padding="8dp"
-                    android:text="morganjames02"
+
                     android:textColor="#555" />
             </RelativeLayout>
 
@@ -117,8 +105,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:inputType="phone"
-                    android:padding="8dp"
-                    android:text="3133596234" />
+                    android:padding="8dp" />
             </RelativeLayout>
 
             <TextView
@@ -141,8 +128,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:inputType="textEmailAddress"
-                    android:padding="8dp"
-                    android:text="morganjames@gmail.com" />
+                    android:padding="8dp" />
             </RelativeLayout>
 
             <View
@@ -164,78 +150,4 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <!-- Menú lateral -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/dark_blue">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="50dp">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/perfil_foto"
-                android:contentDescription="User Profile" />
-
-            <Button
-                android:id="@+id/btnPerfil"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Perfil"
-                android:background="@drawable/button_style"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp" />
-
-            <Button
-                android:id="@+id/btnNotas"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Registrar notas"
-                android:background="@drawable/button_style"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp" />
-
-            <Button
-                android:id="@+id/btnRegitroPaciente"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Registrar Paciente"
-                android:background="@drawable/button_style"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp" />
-            <Button
-                android:id="@+id/btnPerfilPaciente"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Perfil paciente"
-                android:background="@drawable/button_style"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp" />
-            <Button
-                android:id="@+id/btnRecordatorio"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Recordatorio"
-                android:background="@drawable/button_style"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp" />
-
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Logout"
-                android:background="@drawable/button_style"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp" />
-        </LinearLayout>
-    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

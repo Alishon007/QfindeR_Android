@@ -1,114 +1,60 @@
-package com.example.qfinder.controller;
+package com.example.qfinder;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.qfinder.Menu;
-import com.example.qfinder.R;
-import com.example.qfinder.Recordatorio;
-import com.example.qfinder.model.ManagerDB;
+import com.example.qfinder.R; // Correcta
+import com.example.qfinder.model.ManagerDB; // Correcta
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
 
-public class RegistroPaciente extends AppCompatActivity {
 
-    Button btnReconrdatorio;
-    Button btRegistroPaciente;
-    Button btnNotas;
-    Button btnPerfilPaciente;
-    Button btnPerfil, btnLogout;
+public class RegistroPacienteFragment extends Fragment {
 
     private TextInputEditText etNombre, etApellido, etDependencia, etFechaNacimiento, etSexo, etEdad;
-    private Button btnVolver, btnContinuar;
+    private Button btnContinuar;
     private ManagerDB managerDB;
-
-    DrawerLayout drawerLayout;
-    ImageView menu_icon;
+    private ImageView menu_icon;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro_paciente);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflar el layout para este fragment
+        View view = inflater.inflate(R.layout.fragment_registro_paciente, container, false);
 
+        // Inicialización de managerDB
+        managerDB = new ManagerDB(getContext());
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        menu_icon = findViewById(R.id.menu_icon);
-
-        menu_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-
-
-        btnReconrdatorio = findViewById(R.id.btnRecordatorio);
-        btRegistroPaciente = findViewById(R.id.btnRegitroPaciente);
-        btnNotas = findViewById(R.id.btnNotas);
-        btnPerfil = findViewById(R.id.btnPerfil);
-        btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
-        btnLogout = findViewById(R.id.btnLogout);
-
-        btnLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistroPaciente.this, Login.class);
-            startActivity(intent);
-        });
-
-
-        btnPerfil.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistroPaciente.this, MainPerfil.class);
-            startActivity(intent);
-        });
-        btnReconrdatorio.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistroPaciente.this, Recordatorio.class);
-            startActivity(intent);
-        });
-        btnNotas.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistroPaciente.this, ListaNotas.class);
-            startActivity(intent);
-        });
-        btRegistroPaciente.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistroPaciente.this, RegistroPaciente.class);
-            startActivity(intent);
-        });
-        btnPerfilPaciente.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistroPaciente.this, PerfilPaciente.class);
-            startActivity(intent);
-        });
-
-
-
-        // Inicialización corregida
-        managerDB = new ManagerDB(this);
-
-        vincularComponentes();
+        // Vincular componentes
+        vincularComponentes(view);
         configurarEventos();
+
+        return view;
     }
 
-    private void vincularComponentes() {
-        etNombre = findViewById(R.id.etNombre);
-        etApellido = findViewById(R.id.etApellido);
-        etDependencia = findViewById(R.id.etDependencia);
-        etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
-        etSexo = findViewById(R.id.etSexo);
-        etEdad = findViewById(R.id.etEdad);
+    private void vincularComponentes(View view) {
+        etNombre = view.findViewById(R.id.etNombre);
+        etApellido = view.findViewById(R.id.etApellido);
+        etDependencia = view.findViewById(R.id.etDependencia);
+        etFechaNacimiento = view.findViewById(R.id.etFechaNacimiento);
+        etSexo = view.findViewById(R.id.etSexo);
+        etEdad = view.findViewById(R.id.etEdad);
 
-        btnVolver = findViewById(R.id.btnVolver);
-        btnContinuar = findViewById(R.id.btnContinuar);
+        btnContinuar = view.findViewById(R.id.btnContinuar);
+        menu_icon = view.findViewById(R.id.menu_icon);
     }
 
     private void configurarEventos() {
-        btnVolver.setOnClickListener(v -> finish());
 
         btnContinuar.setOnClickListener(v -> {
             if (validarFormulario()) {
@@ -126,7 +72,7 @@ public class RegistroPaciente extends AppCompatActivity {
         int dia = calendario.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePicker = new DatePickerDialog(
-                this,
+                getContext(),
                 (view, year, month, dayOfMonth) -> {
                     String fechaFormateada = String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year);
                     etFechaNacimiento.setText(fechaFormateada);
@@ -195,11 +141,22 @@ public class RegistroPaciente extends AppCompatActivity {
             int idGenerado = (int) (Math.random() * 100000);
 
             if (managerDB.insertarPaciente(idGenerado, nombre, apellido, dependencia, fechaNacimiento, sexo, edad)) {
-                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
                 limpiarFormulario();
+
+                getActivity().getSharedPreferences("datos_paciente", getContext().MODE_PRIVATE)
+                        .edit()
+                        .putInt("paciente_id_guardado", idGenerado)
+                        .apply();
+
+                // Navegar al perfil (sin necesidad de pasar bundle ahora)
+                NavController navController = NavHostFragment.findNavController(this);
+                navController.navigate(R.id.action_nav_registro_paciente_to_nav_perfil_paciente);
+            } else {
+                Toast.makeText(getContext(), "Error al registrar", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
-            Toast.makeText(this, "Error al registrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -210,6 +167,5 @@ public class RegistroPaciente extends AppCompatActivity {
         etFechaNacimiento.setText("");
         etSexo.setText("");
         etEdad.setText("");
-        etNombre.requestFocus();
     }
 }

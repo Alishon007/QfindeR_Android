@@ -16,13 +16,12 @@ public class ManagerDB {
         this.dbHelper = new DbHelper(context);
     }
 
-    // Método público para acceso a la base de datos
-    public SQLiteDatabase getWritableDatabase() {
-        return dbHelper.getWritableDatabase();
-    }
-
     private void openDBWr() {
         this.db = this.dbHelper.getWritableDatabase();
+    }
+
+    public SQLiteDatabase getWritableDatabase() {
+        return dbHelper.getWritableDatabase();
     }
 
     public boolean insertarPaciente(int id, String nombres, String apellidos,
@@ -50,10 +49,9 @@ public class ManagerDB {
             return true;
         }
     }
-    public long crearUsuario(String nombres, String apellidos, String email, String telefono, String nacimiento, String password){
-        //1.Abrir la BD en modo escritura
+
+    public long crearUsuario(String nombres, String apellidos, String email, String telefono, String nacimiento, String password) {
         openDBWr();
-        //2.Crear un contenedor de valores para almacenar columbas y datos a insertar
         ContentValues valores = new ContentValues();
         valores.put("nombres", nombres);
         valores.put("apellidos", apellidos);
@@ -64,8 +62,8 @@ public class ManagerDB {
         long result = db.insert("usuario", null, valores);
         return result;
     }
+
     public long createRecordatorio(String fecha) {
-        System.out.println("Fecha registro: " + fecha);
         openDBWr();
         ContentValues valores = new ContentValues();
         valores.put("fecha", fecha);
@@ -76,21 +74,53 @@ public class ManagerDB {
 
     public boolean verificarCredenciales(String email, String password) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String query = "SELECT * FROM usuario WHERE email = ? AND password = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{email, password});
-
-        boolean existeUsuario = cursor.moveToFirst(); // Devuelve true si hay un resultado
-        cursor.close();
-        db.close();
-
-        return existeUsuario;
+        Cursor cursor = null;
+        try {
+            String query = "SELECT * FROM usuario WHERE email = ? AND password = ?";
+            cursor = db.rawQuery(query, new String[]{email, password});
+            return cursor.moveToFirst(); // Si hay un usuario, devuelve true
+        } finally {
+            if (cursor != null) {
+                cursor.close(); // Asegúrate de cerrar el cursor
+            }
+            db.close();
+        }
     }
 
+    public Cursor obtenerDatosUsuario(String email) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nombres, apellidos, email, telefono FROM usuario WHERE email = ?", new String[]{email});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            return cursor; // Se encontró un usuario con ese email
+        } else {
+            return null; // No se encontró ningún usuario
+        }
+    }
 
     public Cursor obtenerPacientes() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        // Devuelve solo los campos necesarios: id, nombres y dependencia
         return db.rawQuery("SELECT id, nombres, apellidos, dependencia FROM Paciente", null);
     }
 
+    // Método para obtener los datos de un paciente por su ID
+    public Cursor obtenerPacientePorId(int pacienteId) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM Paciente WHERE id = ?", new String[]{String.valueOf(pacienteId)});
+
+    }
+    public long createRecordatorio(String fecha, String descripcion) {
+        openDBWr();
+        ContentValues valores = new ContentValues();
+        valores.put("fecha", fecha);
+        valores.put("descripcion", descripcion);
+        long result = db.insert("recordatorio", null, valores);
+        db.close();
+        return result;
+    }
+    public Cursor obtenerRecordatorios() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        return db.rawQuery("SELECT fecha, descripcion FROM recordatorio ORDER BY id DESC", null);
+    }
 }
+

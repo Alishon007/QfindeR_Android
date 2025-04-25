@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.QfindeR" parent="Base.Theme.QfindeR" />
+
+    <style name="Theme.QfindeR.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.QfindeR.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.QfindeR.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

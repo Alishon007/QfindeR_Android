@@ -17,7 +17,7 @@
     <string name="nacimiento">Fecha de nacimiento</string>
     <string name="contrasena">Contraseña</string>
     <string name="btnVolver">Volver </string>
-    <string name="btnCont">Continuar </string>
+    <string name="btnCont">Registrar </string>
     <string name="AceptarTerminos">ACEPTAR TERMINOS Y CONDICIONES</string>
     <string name="Terminos">
         TÉRMINOS Y CONDICIONES DE USO
@@ -50,6 +50,7 @@ Se aplicará la legislación vigente en la jurisdicción del hospital.
 Para consultas, comunicarse con el hospital a través de sus canales oficiales.</string>
 
     <string name="registrar_title">Registrar notas</string>
+    <string name="crearnota">Crear notas</string>
     <string name="nota1">Nota 1</string>
     <string name="nota2">Nota 2</string>
     <string name="nota3">Nota 3</string>
@@ -57,5 +58,18 @@ Para consultas, comunicarse con el hospital a través de sus canales oficiales.<
 
     <string name="titulo_recordatorio">Recordatorio</string>
     <string name="recordar_text">Recordar</string>
+    <string name="title_activity_menu_qfinder">MenuQfinder</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 

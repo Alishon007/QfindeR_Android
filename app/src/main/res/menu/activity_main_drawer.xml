@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_perfil"
+        android:title="Perfil" />
+
+        <item
+            android:id="@+id/nav_notas"
+        android:title="Registrar notas" />
+
+        <item
+            android:id="@+id/nav_registro_paciente"
+        android:title="Registrar Paciente" />
+
+        <item
+            android:id="@+id/nav_perfil_paciente"
+        android:title="Perfil paciente" />
+
+        <item
+            android:id="@+id/nav_recordatorio"
+        android:title="Recordatorio" />
+
+        <item
+            android:id="@+id/nav_logout"
+        android:title="Cerrar sesión" />
+
+    </group>
+</menu>
