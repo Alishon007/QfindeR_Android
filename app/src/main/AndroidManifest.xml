@@ -13,9 +13,13 @@
         android:theme="@style/Theme.QfindeR"
         tools:targetApi="31">
         <activity
+            android:name=".MenuQfinder"
+            android:exported="false"
+            android:label="@string/title_activity_menu_qfinder"
+            android:theme="@style/Theme.QfindeR.NoActionBar" />
+        <activity
             android:name=".controller.ListaPacientes"
-            android:exported="false" />
-        <!-- Lista de Activities -->
+            android:exported="false" /> <!-- Lista de Activities -->
         <activity
             android:name=".controller.PerfilPaciente"
             android:exported="false" />

@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.qfinder.PerfilPacienteFragment;
 import com.example.qfinder.R;
 import com.example.qfinder.model.ManagerDB;
 
@@ -43,7 +44,7 @@ public class ListaPacientes extends AppCompatActivity {
 
         // Manejar clics en la lista
         listView.setOnItemClickListener((adapterView, view, position, id) -> {
-            Intent intent = new Intent(ListaPacientes.this, PerfilPaciente.class);
+            Intent intent = new Intent(ListaPacientes.this, PerfilPacienteFragment.class);
             intent.putExtra("patient_id", patientIds.get(position)); // Pasar el ID del paciente
             startActivity(intent);
         });

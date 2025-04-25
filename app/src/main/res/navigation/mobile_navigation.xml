@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.qfinder.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Fragmento Perfil -->
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.qfinder.ui.perfil.PerfilFragment"
+        android:label="Perfil">
+        <action
+            android:id="@+id/action_nav_perfil_to_editPerfil"
+            app:destination="@id/editPerfil" />
+    </fragment>
+
+    <!-- Fragmento Editar Perfil -->
+    <fragment
+        android:id="@+id/editPerfil"
+        android:name="com.example.qfinder.EditPerfil"
+        android:label="Editar Perfil">
+        <!-- Acción inversa hacia el perfil -->
+        <action
+            android:id="@+id/action_nav_editar_perfil_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
+    </fragment>
+
+    <!-- Otros fragmentos -->
+    <fragment
+        android:id="@+id/nav_notas"
+        android:name="com.example.qfinder.NotasFragment"
+        android:label="Registrar notas"
+        tools:layout="@layout/fragment_notas" />
+
+    <fragment
+        android:id="@+id/nav_registro_paciente"
+        android:name="com.example.qfinder.RegistroPacienteFragment"
+
+        android:label="Registrar Paciente"
+    tools:layout="@layout/fragment_registro_paciente">
+    <!-- Acción hacia el perfil paciente -->
+    <action
+        android:id="@+id/action_nav_registro_paciente_to_nav_perfil_paciente"
+        app:destination="@id/nav_perfil_paciente" />
+</fragment>
+
+    <!-- Fragmento Perfil Paciente -->
+<fragment
+android:id="@+id/nav_perfil_paciente"
+android:name="com.example.qfinder.PerfilPacienteFragment"
+    android:label="Perfil paciente"
+    tools:layout="@layout/fragment_perfil_paciente" />
+
+    <fragment
+        android:id="@+id/nav_recordatorio"
+        android:name="com.example.qfinder.RecordatorioFragment"
+        android:label="Recordatorio"
+        tools:layout="@layout/fragment_recordatorio" />
+
+    <fragment
+        android:id="@+id/nav_crear_nota"
+        android:name="com.example.qfinder.CrearNota"
+        android:label="Crear Nota"
+        tools:layout="@layout/fragment_crear_nota" />
+
+</navigation>

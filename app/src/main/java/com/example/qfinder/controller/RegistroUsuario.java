@@ -1,15 +1,13 @@
 package com.example.qfinder.controller;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.qfinder.R;
 import com.example.qfinder.model.ManagerDB;
@@ -21,15 +19,16 @@ public class RegistroUsuario extends AppCompatActivity {
 
     TextInputEditText edtNombre, edtApellido, edtCorreo, edtTelefono, edtNacimiento, edtContrasena;
     Button btnEnviar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuario);
 
-        //Base de datos
+        // Base de datos
         managerDB = new ManagerDB(RegistroUsuario.this);
 
-        //Asiganacion de  elementos UI a variables de java
+        // Asignación de elementos UI a variables de Java
         edtNombre = findViewById(R.id.edtNombre);
         edtApellido = findViewById(R.id.edtApellido);
         edtCorreo = findViewById(R.id.edtCorreo);
@@ -41,16 +40,27 @@ public class RegistroUsuario extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(
-                        edtNombre.length() < 0 &&
-                                edtApellido.length() < 0 &&
-                                edtCorreo.length() < 0 &&
-                                edtTelefono.length() < 0 &&
-                                edtNacimiento.length() < 0 &&
-                                edtContrasena.length() < 0
-                ){
-                    Toast.makeText(RegistroUsuario.this, "Los campos son obligatorios", Toast.LENGTH_SHORT).show();
-                }else {
+                // Validación de campos obligatorios
+                if (edtNombre.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistroUsuario.this, "El nombre es obligatorio", Toast.LENGTH_SHORT).show();
+                    edtNombre.requestFocus();
+                } else if (edtApellido.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistroUsuario.this, "El apellido es obligatorio", Toast.LENGTH_SHORT).show();
+                    edtApellido.requestFocus();
+                } else if (edtCorreo.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistroUsuario.this, "El correo es obligatorio", Toast.LENGTH_SHORT).show();
+                    edtCorreo.requestFocus();
+                } else if (edtTelefono.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistroUsuario.this, "El teléfono es obligatorio", Toast.LENGTH_SHORT).show();
+                    edtTelefono.requestFocus();
+                } else if (edtNacimiento.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistroUsuario.this, "La fecha de nacimiento es obligatoria", Toast.LENGTH_SHORT).show();
+                    edtNacimiento.requestFocus();
+                } else if (edtContrasena.getText().toString().isEmpty()) {
+                    Toast.makeText(RegistroUsuario.this, "La contraseña es obligatoria", Toast.LENGTH_SHORT).show();
+                    edtContrasena.requestFocus();
+                } else {
+                    // Insertar datos en la base de datos
                     long result = managerDB.crearUsuario(
                             edtNombre.getText().toString(),
                             edtApellido.getText().toString(),
@@ -60,12 +70,26 @@ public class RegistroUsuario extends AppCompatActivity {
                             edtContrasena.getText().toString()
                     );
 
-                    if(result < 0){
-                        //Toast.makeText(MainActivity.this, "No se Inserto la ciudad: "+result, Toast.LENGTH_SHORT).show();
+                    if (result < 0) {
                         Toast.makeText(RegistroUsuario.this, "Hubieron fallos en el registro del usuario", Toast.LENGTH_SHORT).show();
-                    }else{
-                        //Toast.makeText(MainActivity.this, "Se Inserto la ciudad con exito: "+result, Toast.LENGTH_SHORT).show();
-                        Toast.makeText(RegistroUsuario.this, "Se registro fue exitoso", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Guardar los datos en SharedPreferences
+                        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("nombre", edtNombre.getText().toString());
+                        editor.putString("apellido", edtApellido.getText().toString());
+                        editor.putString("correo", edtCorreo.getText().toString());
+                        editor.putString("telefono", edtTelefono.getText().toString());
+                        editor.putString("nacimiento", edtNacimiento.getText().toString());
+                        editor.putString("contrasena", edtContrasena.getText().toString());
+                        editor.apply();  // Guardar los datos en SharedPreferences
+
+                        Toast.makeText(RegistroUsuario.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+                        // Navegar al LoginActivity o cualquier otra actividad después del registro
+                        Intent intent = new Intent(RegistroUsuario.this, Login.class);
+                        startActivity(intent);
+                        finish(); // Finalizar la actividad de registro
                     }
                 }
             }

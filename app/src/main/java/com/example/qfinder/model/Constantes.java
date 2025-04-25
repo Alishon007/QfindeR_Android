@@ -1,28 +1,47 @@
 package com.example.qfinder.model;
 
 public class Constantes {
-    public static final String NAME_BD = "qfinderZulema2";
-    public static final int NUM_VERSION = 1;
+    public static final String NAME_BD = "QfinderDB.db";
+    public static final int NUM_VERSION = 3;
 
-    // From HEAD branch (original)
-    public static final String SENTENCIA_TABLA = "create table Paciente(" +
-            "id integer, " +
-            "nombres text, " +
-            "apellidos text, " +
-            "dependencia text , " +
-            "fechaNacimiento text, " +
-            "sexo text, " +
-            "edad integer)";
-
-    // From moriones branch
-    public static final String SENTENCIA_CREAR_USUARIO = "create table usuario(" +
-            "nombres VARCHAR(100) NOT NULL," +
-            "apellidos VARCHAR(100) NOT NULL," +
-            "email VARCHAR(100) NOT NULL," +
-            "telefono VARCHAR(10)," +
-            "nacimiento DATE," +
-            "password VARCHAR(20) NOT NULL" +
+    // Tabla Paciente
+    public static final String SENTENCIA_TABLA_PACIENTE = "CREATE TABLE Paciente (" +
+            "id INTEGER, " +
+            "nombres TEXT, " +
+            "apellidos TEXT, " +
+            "dependencia TEXT, " +
+            "fechaNacimiento TEXT, " +
+            "sexo TEXT, " +
+            "edad INTEGER" +
             ");";
 
-    public static final String SENTENCIA_CREAR_RECORDATORIO = "CREATE TABLE recordatorio(fecha DATE)";
+    // Tabla Usuario
+    public static final String SENTENCIA_CREAR_USUARIO = "CREATE TABLE usuario (" +
+            "nombres TEXT NOT NULL, " +
+            "apellidos TEXT NOT NULL, " +
+            "email TEXT NOT NULL, " +
+            "telefono TEXT, " +
+            "nacimiento TEXT, " +
+            "password TEXT NOT NULL" +
+            ");";
+
+    // Tabla Recordatorio
+    public static final String SENTENCIA_CREAR_RECORDATORIO = "CREATE TABLE recordatorio (" +
+            "id INTEGER, " +
+            "fecha TEXT, " +
+            "descripcion TEXT" +
+            ");";
+
+    // Tabla Notas
+    public static final String TABLE_NOTAS = "notas";
+    public static final String SENTENCIA_CREAR_NOTAS = "CREATE TABLE " + TABLE_NOTAS + " (" +
+            "id INTEGER, " +
+            "fecha TEXT, " +
+            "descripcion TEXT" +
+            ");";
+
+    // Constantes columnas tabla Notas
+    public static final String COLUMN_FECHA_NOTA = "fecha";
+    public static final String COLUMN_DESCRIPCION_NOTA = "descripcion";
+
 }
