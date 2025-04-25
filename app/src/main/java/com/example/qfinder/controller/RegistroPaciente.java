@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.qfinder.Menu;
 import com.example.qfinder.R;
 import com.example.qfinder.Recordatorio;
 import com.example.qfinder.model.ManagerDB;
@@ -25,7 +26,7 @@ public class RegistroPaciente extends AppCompatActivity {
     Button btRegistroPaciente;
     Button btnNotas;
     Button btnPerfilPaciente;
-    Button btnPerfil;
+    Button btnPerfil, btnLogout;
 
     private TextInputEditText etNombre, etApellido, etDependencia, etFechaNacimiento, etSexo, etEdad;
     private Button btnVolver, btnContinuar;
@@ -56,7 +57,12 @@ public class RegistroPaciente extends AppCompatActivity {
         btnNotas = findViewById(R.id.btnNotas);
         btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfilPaciente = findViewById(R.id.btnPerfilPaciente);
+        btnLogout = findViewById(R.id.btnLogout);
 
+        btnLogout.setOnClickListener(v -> {
+            Intent intent = new Intent(RegistroPaciente.this, Login.class);
+            startActivity(intent);
+        });
 
 
         btnPerfil.setOnClickListener(v -> {
