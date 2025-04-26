@@ -52,7 +52,7 @@
                     android:paddingVertical="10dp" />
             </LinearLayout>
 
-            <!-- Formulario -->
+            <!-- Formulario de Recordatorio -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Lista de recordatorios -->
+            <!-- Lista de Recordatorios -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,8 +114,11 @@
                 <ListView
                     android:id="@+id/listaDeRecordatorios"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                    android:layout_height="300dp"
+                    android:divider="@android:color/darker_gray"
+                    android:dividerHeight="1dp" />
             </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>

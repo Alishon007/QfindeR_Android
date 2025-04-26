@@ -1,5 +1,6 @@
 package com.example.qfinder;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import androidx.navigation.Navigation;
 
 import com.example.qfinder.model.DbHelper;
 
+import java.util.Calendar;
+
 public class CrearNota extends Fragment {
 
     private EditText etFecha, etDescripcion;
@@ -29,7 +32,6 @@ public class CrearNota extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_crear_nota, container, false);
     }
 
@@ -41,6 +43,22 @@ public class CrearNota extends Fragment {
         etDescripcion = view.findViewById(R.id.etDescripcion);
         btnGuardarNota = view.findViewById(R.id.btnGuardarNota);
         dbHelper = new DbHelper(requireContext());
+
+        // Abrir el calendario al hacer clic en el campo de fecha
+        etFecha.setOnClickListener(v -> {
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+            // Mostrar el DatePickerDialog
+            DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), (view1, year1, month1, dayOfMonth1) -> {
+                // Formatear la fecha como 'dd/MM/yyyy'
+                String date = dayOfMonth1 + "/" + (month1 + 1) + "/" + year1;
+                etFecha.setText(date);
+            }, year, month, dayOfMonth);
+            datePickerDialog.show();
+        });
 
         btnGuardarNota.setOnClickListener(v -> {
             String fecha = etFecha.getText().toString().trim();
@@ -54,7 +72,7 @@ public class CrearNota extends Fragment {
             boolean exito = dbHelper.insertarNota(fecha, descripcion);
             if (exito) {
                 Toast.makeText(requireContext(), "Nota guardada correctamente", Toast.LENGTH_SHORT).show();
-                Navigation.findNavController(view).navigateUp(); // vuelve al fragmento anterior
+                Navigation.findNavController(view).navigateUp();
             } else {
                 Toast.makeText(requireContext(), "Error al guardar la nota", Toast.LENGTH_SHORT).show();
             }

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment; // <-- Import nuevo agregado
 
 import java.io.IOException;
 
@@ -97,7 +97,8 @@ public class EditPerfil extends Fragment {
             }
 
             // Navegar de regreso al perfil con los nuevos datos
-            Navigation.findNavController(view).navigate(R.id.action_nav_editar_perfil_to_nav_perfil, result);
+            NavHostFragment.findNavController(EditPerfil.this)
+                    .navigate(R.id.action_nav_editar_perfil_to_nav_perfil, result);
         });
 
         return rootView;

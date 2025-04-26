@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.navigation.Navigation;
 
 import com.example.qfinder.R;
-import androidx.navigation.Navigation;
 
 public class PerfilFragment extends Fragment {
 
@@ -36,7 +36,7 @@ public class PerfilFragment extends Fragment {
         txtContacto = view.findViewById(R.id.txtContacto);
         txtEmail = view.findViewById(R.id.txtEmail);
         imgPerfil = view.findViewById(R.id.imgPerfil);
-        btnEditar = view.findViewById(R.id.btnEditar); // Asegúrate de tener el botón en el layout
+        btnEditar = view.findViewById(R.id.btnEditar);
 
         // Obtener los datos del Bundle pasado desde MenuQfinder
         Bundle datosUsuario = getArguments();
@@ -45,7 +45,7 @@ public class PerfilFragment extends Fragment {
             String usuario = datosUsuario.getString("usuario", "Usuario");
             String contacto = datosUsuario.getString("contacto", "0000000000");
             String email = datosUsuario.getString("email", "correo@ejemplo.com");
-            imagenUri = datosUsuario.getString("imagenUri", null); // Obtener la URI de la imagen si existe
+            imagenUri = datosUsuario.getString("imagenUri", null);
 
             // Asignar los datos a los TextView
             txtNombre.setText(nombreCompleto);
@@ -53,30 +53,28 @@ public class PerfilFragment extends Fragment {
             txtContacto.setText(contacto);
             txtEmail.setText(email);
 
-            // Si la URI de la imagen no es nula, actualizar la imagen
+            // Mostrar la imagen si existe
             if (imagenUri != null) {
-                imgPerfil.setImageURI(Uri.parse(imagenUri));  // Mostrar la imagen desde la URI
+                imgPerfil.setImageURI(Uri.parse(imagenUri));
             }
         }
 
-        // Configurar el botón Editar para navegar a EditPerfil
+        // Botón Editar
         btnEditar.setOnClickListener(v -> {
-            // Crear un Bundle para pasar los datos al fragmento de edición
             Bundle bundleEdicion = new Bundle();
             bundleEdicion.putString("nombre", txtNombre.getText().toString());
             bundleEdicion.putString("usuario", txtUsuario.getText().toString());
             bundleEdicion.putString("contacto", txtContacto.getText().toString());
             bundleEdicion.putString("email", txtEmail.getText().toString());
-            bundleEdicion.putString("imagenUri", imagenUri);  // Pasar la URI de la imagen
+            bundleEdicion.putString("imagenUri", imagenUri);
 
-            // Navegar al fragmento EditPerfil con los datos
             Navigation.findNavController(v).navigate(R.id.action_nav_perfil_to_editPerfil, bundleEdicion);
         });
 
         return view;
     }
 
-    // Este método se llamará cuando se regrese del fragmento de edición
+    // Método para actualizar los datos cuando regreses del fragmento de edición
     public void actualizarPerfil(Bundle result) {
         if (result != null) {
             txtNombre.setText(result.getString("nombre"));
@@ -87,7 +85,7 @@ public class PerfilFragment extends Fragment {
             String nuevaImagenUri = result.getString("imagenUri");
             if (nuevaImagenUri != null) {
                 imagenUri = nuevaImagenUri;
-                imgPerfil.setImageURI(Uri.parse(imagenUri));  // Actualizar la imagen
+                imgPerfil.setImageURI(Uri.parse(imagenUri));
             }
         }
     }

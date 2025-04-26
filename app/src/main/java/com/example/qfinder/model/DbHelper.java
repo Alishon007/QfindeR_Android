@@ -44,4 +44,13 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + Constantes.TABLE_NOTAS, null);
     }
+
+    // Obtener notas filtradas por fecha
+    public Cursor obtenerNotasPorFecha(String fechaBusqueda) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // Usamos LIKE para permitir coincidencias parciales con la fecha
+        String query = "SELECT * FROM " + Constantes.TABLE_NOTAS +
+                " WHERE " + Constantes.COLUMN_FECHA_NOTA + " LIKE ?";
+        return db.rawQuery(query, new String[]{"%" + fechaBusqueda + "%"});
+    }
 }

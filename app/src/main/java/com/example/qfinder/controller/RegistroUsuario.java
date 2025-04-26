@@ -1,6 +1,5 @@
 package com.example.qfinder.controller;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +7,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.qfinder.R;
 import com.example.qfinder.model.ManagerDB;
@@ -86,10 +86,10 @@ public class RegistroUsuario extends AppCompatActivity {
 
                         Toast.makeText(RegistroUsuario.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
 
-                        // Navegar al LoginActivity o cualquier otra actividad después del registro
-                        Intent intent = new Intent(RegistroUsuario.this, Login.class);
-                        startActivity(intent);
-                        finish(); // Finalizar la actividad de registro
+                        // Reemplazar la actividad con LoginFragment
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(android.R.id.content, new LoginFragment()); // Reemplazar el contenido con el fragmento
+                        transaction.commit(); // Commit de la transacción
                     }
                 }
             }

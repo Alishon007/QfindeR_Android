@@ -29,7 +29,7 @@ public class RecordatorioFragment extends Fragment {
     private ListView listaDeRecordatorios;
     private TextInputEditText edtNombre;
 
-    private List<String> listaFechas;
+    private List<String> listaRecordatorios;
     private ArrayAdapter<String> adaptador;
 
     public RecordatorioFragment() {
@@ -51,8 +51,8 @@ public class RecordatorioFragment extends Fragment {
         listaDeRecordatorios = rootView.findViewById(R.id.listaDeRecordatorios);
         edtNombre = rootView.findViewById(R.id.edtNombre);
 
-        listaFechas = new ArrayList<>();
-        adaptador = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, listaFechas);
+        listaRecordatorios = new ArrayList<>();
+        adaptador = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, listaRecordatorios);
         listaDeRecordatorios.setAdapter(adaptador);
 
         // Cargar los recordatorios existentes al iniciar el fragmento
@@ -80,7 +80,7 @@ public class RecordatorioFragment extends Fragment {
                 } else {
                     Toast.makeText(getContext(), "Recordatorio guardado", Toast.LENGTH_SHORT).show();
                     edtNombre.setText("");
-                    listaFechas.add(fechaSeleccionada + " - " + descripcion);
+                    listaRecordatorios.add(descripcion); // 👈 solo agregamos el título
                     adaptador.notifyDataSetChanged();
                 }
             });
@@ -96,9 +96,9 @@ public class RecordatorioFragment extends Fragment {
         Cursor cursor = managerDB.obtenerRecordatorios();
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                String fecha = cursor.getString(cursor.getColumnIndexOrThrow("fecha"));
+                // Ignoramos la fecha aquí
                 String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
-                listaFechas.add(fecha + " - " + descripcion);
+                listaRecordatorios.add(descripcion); // 👈 solo agregamos el título
             } while (cursor.moveToNext());
             cursor.close();
         }

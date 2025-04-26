@@ -69,12 +69,15 @@
                 android:background="@drawable/border_azul">
 
                 <SearchView
+                    android:id="@+id/searchView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:queryHint="Buscar Notas"
                     android:iconifiedByDefault="false"
                     android:layout_margin="8dp"
-                    android:background="@drawable/border_rounded" />
+                    android:background="@drawable/border_rounded"
+                    android:theme="@style/CustomSearchViewStyle" /><!-- Aplica el estilo aquí -->
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -92,9 +95,9 @@
                 </LinearLayout>
 
                 <ListView
-                    android:id="@+id/listaNotasss"
+                    android:id="@+id/listaNotass"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="255dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

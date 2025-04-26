@@ -1,14 +1,10 @@
 package com.example.qfinder.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.qfinder.R;
 
@@ -18,13 +14,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-// Retraso de 3 segundos antes de cambiar a LoginActivity
+
+        // Retraso de 3 segundos antes de cambiar a LoginFragment
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
-                finish(); // Cierra la pantalla de bienvenida
+                // Agregar o reemplazar el fragmento de login
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, new LoginFragment()); // Reemplaza el fragmento en el contenedor raíz
+                transaction.commit(); // Commit de la transacción
             }
         }, 2000);
     }

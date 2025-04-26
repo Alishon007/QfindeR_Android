@@ -9,9 +9,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.view.MenuItem;
-
-import com.example.qfinder.controller.Login;
 import com.example.qfinder.databinding.ActivityMenuQfinderBinding;
 
 public class MenuQfinder extends AppCompatActivity {
@@ -69,8 +66,8 @@ public class MenuQfinder extends AppCompatActivity {
             boolean handled = false;
 
             if (menuItem.getItemId() == R.id.nav_logout) {
-                // Cerrar sesión: ir a Login y limpiar pila de actividades
-                Intent logoutIntent = new Intent(MenuQfinder.this, Login.class);
+                // Cerrar sesión: ir a LoginActivity y limpiar pila de actividades
+                Intent logoutIntent = new Intent(MenuQfinder.this, LoginActivity.class);
                 logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(logoutIntent);
                 finish();
